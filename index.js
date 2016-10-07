@@ -6,6 +6,7 @@
  */
 function PromiseConsecutive() {
 
+    this._mainDefer = null;
     this._commands = [];
     this._results = [];
 }
@@ -33,7 +34,11 @@ PromiseConsecutive.prototype.add = function(method) {
  * Starts the execution of the command consecutively
  */
 PromiseConsecutive.prototype.start = function() {
+    this._mainDefer = Promise.defer();
+
     this._executeNextCommand();
+
+    return this._mainDefer.promise;
 };
 
 /**
@@ -43,7 +48,14 @@ PromiseConsecutive.prototype.start = function() {
 PromiseConsecutive.prototype._executeNextCommand = function() {
     var command = this._commands.shift();
 
-    this._executeCommand(command);
+    if (command) {
+        return this._executeCommand(command).then(result => {
+            this._results.push(result);
+            this._executeNextCommand();
+        });
+    }else{
+        this._mainDefer.resolve(this._results);
+    }
 };
 
 /**
@@ -55,16 +67,26 @@ PromiseConsecutive.prototype._executeNextCommand = function() {
  * @private
  */
 PromiseConsecutive.prototype._executeCommand = function(command) {
+
+    var defer = Promise.defer();
+
     command.returnedValue = command.method.apply(null, command.args);
     command.isPromise = this.isPromise(command.returnedValue);
 
     if ( command.isPromise) {
-        command.returnedValue.then( () => {
-            this._executeNextCommand();
-        });
+        command.returnedValue
+            .then( (commandResult) => {
+                defer.resolve(commandResult);
+            })
+            .catch(() => {
+                defer.reject();
+            })
     }else{
-        this._executeNextCommand();
+
+        defer.resolve(command.returnedValue);
     }
+
+    return defer.promise;
 };
 
 /**
