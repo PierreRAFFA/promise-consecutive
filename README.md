@@ -11,5 +11,19 @@ p.add(logMessage, 'again');
 p.add(sleep, 2000);  
 p.add(logMessage, 'again and again');  
 p.start();  
+  
+function logMessage(message) {  
+    console.log('hello ' + message);  
+}  
+  
+function sleep(duration) {  
+    var defer = Promise.defer();  
+    setTimeout(() => {  
+        console.log('sleep ' + duration)  
+        defer.resolve('world');  
+    }, duration);  
+  
+    return defer.promise;  
+}  
 
 ```
