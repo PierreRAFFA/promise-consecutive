@@ -7,9 +7,10 @@ p.add(sleep, 1000);
 p.add(logMessage, 'again');
 p.add(sleep, 2000);
 p.add(logMessage, 'again and again');
-p.start().then(results => {
-    console.log(results);
-});
+p.start()
+    .then(results => {
+        console.log(results);
+    });
 
 function logMessage(text) {
     var message = 'hello ' + text;
@@ -22,7 +23,6 @@ function sleep(duration) {
     var defer = Promise.defer();
     setTimeout(() => {
         console.log('sleep ' + duration)
-        // defer.reject();
         defer.resolve(`I slept for ${duration}ms`);
     }, duration);
 

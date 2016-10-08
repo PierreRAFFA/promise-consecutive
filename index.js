@@ -49,10 +49,14 @@ PromiseConsecutive.prototype._executeNextCommand = function() {
     var command = this._commands.shift();
 
     if (command) {
-        return this._executeCommand(command).then(result => {
-            this._results.push(result);
-            this._executeNextCommand();
-        });
+        return this._executeCommand(command)
+            .then(result => {
+                this._results.push(result);
+                this._executeNextCommand();
+            })
+            .catch(error => {
+                this._mainDefer.reject(error);
+            })
     }else{
         this._mainDefer.resolve(this._results);
     }
@@ -78,11 +82,10 @@ PromiseConsecutive.prototype._executeCommand = function(command) {
             .then( (commandResult) => {
                 defer.resolve(commandResult);
             })
-            .catch(() => {
-                defer.reject();
+            .catch(error => {
+                defer.reject(error);
             })
     }else{
-
         defer.resolve(command.returnedValue);
     }
 
