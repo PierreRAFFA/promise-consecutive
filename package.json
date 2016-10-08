@@ -1,7 +1,7 @@
 {
-  "name": "promise-consecutive",
-  "version": "1.0.2",
-  "description": "This `promise-consecutive` modules allows you to execute a series of methods consecutively, and retrieve the results.",
+  "name": "promise-series-advanced",
+  "version": "1.0.0",
+  "description": "This `promise-series-advanced` modules allows you to execute a series of methods consecutively, and retrieve the results.",
   "main": "index.js",
   "directories": {
     "example": "examples"
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PierreRAFFA/promise-consecutive.git"
+    "url": "git+https://github.com/PierreRAFFA/promise-series-advanced.git"
   },
   "keywords": [
     "promise",
@@ -24,7 +24,7 @@
   "author": "Pierre RAFFA",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/PierreRAFFA/promise-consecutive/issues"
+    "url": "https://github.com/PierreRAFFA/promise-series-advanced/issues"
   },
-  "homepage": "https://github.com/PierreRAFFA/promise-consecutive#readme"
+  "homepage": "https://github.com/PierreRAFFA/promise-series-advanced#readme"
 }

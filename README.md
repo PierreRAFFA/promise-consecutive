@@ -1,4 +1,4 @@
-# Promise Consecutive
+# Promise Series Advanced
 
 This `promise-consecutive` modules allows you to execute a series of methods consecutively, and retrieve the results.  
 Each method :  
