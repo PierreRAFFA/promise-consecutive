@@ -39,3 +39,13 @@ function sleep(duration) {
 }  
   
 ```
+
+This will print:  
+
+```javascript
+[ 'hello world',  
+  'I slept for 1000ms',  
+  'hello again',  
+  'I slept for 2000ms',  
+  'hello again and again' ]  
+```

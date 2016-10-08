@@ -1,0 +1,30 @@
+{
+  "name": "promise-consecutive",
+  "version": "1.0.1",
+  "description": "This `promise-consecutive` modules allows you to execute a series of methods consecutively, and retrieve the results.",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "node examples/consecutiveCommand.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PierreRAFFA/promise-consecutive.git"
+  },
+  "keywords": [
+    "promise",
+    "promises",
+    "serie",
+    "series",
+    "consecutive",
+    "consecutively"
+  ],
+  "author": "Pierre RAFFA",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PierreRAFFA/promise-consecutive/issues"
+  },
+  "homepage": "https://github.com/PierreRAFFA/promise-consecutive#readme"
+}
