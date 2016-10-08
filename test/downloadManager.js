@@ -4,10 +4,10 @@ var DownloadManager = require('./utils/DownloadManager');
 var downloadManager = new DownloadManager();
 
 var p = new PromiseSeries();
-p.add(downloadManager.downloadWebPage, 'google.com');
-p.add(downloadManager.downloadAsset, '/assets/1.jpg');
-p.add(downloadManager.downloadWebPage, 'amazon.com');
-p.add(downloadManager.downloadAsset, '/assets/2.jpg');
+p.add(downloadManager.downloadWebPage.bind(this), 'google.com');
+p.add(downloadManager.downloadAsset.bind(this), '/assets/1.jpg');
+p.add(downloadManager.downloadWebPage.bind(this), 'amazon.com');
+p.add(downloadManager.downloadAsset.bind(this), '/assets/2.jpg');
 p.start()
     .then(results => {
         console.log(results);

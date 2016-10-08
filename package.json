@@ -1,6 +1,6 @@
 {
   "name": "promise-series-advanced",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "This `promise-series-advanced` modules allows you to execute a series of methods consecutively, and retrieve the results.",
   "main": "index.js",
   "scripts": {
