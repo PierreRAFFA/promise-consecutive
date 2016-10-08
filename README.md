@@ -28,7 +28,6 @@ function logMessage(text) {
 }  
   
 function sleep(duration) {  
-    // console.log('m3 called');  
     var defer = Promise.defer();  
     setTimeout(() => {  
         console.log('sleep ' + duration)  

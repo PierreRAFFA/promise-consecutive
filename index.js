@@ -65,7 +65,7 @@ PromiseConsecutive.prototype._executeNextCommand = function() {
 /**
  * Execute the command and execute the next command:
  *  - straight after if no promise
- *  - when the intial command is executed completely.
+ *  - when the initial command is executed completely.
  *
  * @param command
  * @private
@@ -93,22 +93,12 @@ PromiseConsecutive.prototype._executeCommand = function(command) {
 };
 
 /**
- * Call the command and stores the returnedValue and isPromise
- * @param command
- * @private
- */
-PromiseConsecutive.prototype._callCommand = function(command) {
-    command.returnedValue = command.method.apply(null, command.args);
-    command.isPromise = this.isPromise(command.returnedValue);
-};
-
-/**
  * Checks if the return value of the command is a Promise
  * @param methodReturn
  * @returns {boolean}
  */
 PromiseConsecutive.prototype.isPromise = function(methodReturn) {
-    return !!methodReturn && typeof methodReturn === 'object' && 'then' in methodReturn;
+    return typeof methodReturn.then === 'function' && typeof methodReturn.catch === 'function';
 };
 
 module.exports = PromiseConsecutive;

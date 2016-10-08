@@ -10,6 +10,9 @@ p.add(logMessage, 'again and again');
 p.start()
     .then(results => {
         console.log(results);
+    })
+    .catch(error => {
+        console.log(error);
     });
 
 function logMessage(text) {

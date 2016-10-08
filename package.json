@@ -1,13 +1,13 @@
 {
   "name": "promise-consecutive",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "This `promise-consecutive` modules allows you to execute a series of methods consecutively, and retrieve the results.",
   "main": "index.js",
   "directories": {
     "example": "examples"
   },
   "scripts": {
-    "test": "node examples/consecutiveCommand.js"
+    "test": "node test/consecutive.js"
   },
   "repository": {
     "type": "git",
