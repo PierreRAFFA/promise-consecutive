@@ -1,6 +1,6 @@
 # Promise Consecutive
 
-This `promise-consecutive` modules allows you to execute multiple methods consecutively, and retrieve the results.  
+This `promise-consecutive` modules allows you to execute a series of methods consecutively, and retrieve the results.  
 Each method :  
     - may be a promise or not.  
     - can be called with specific parameters  
