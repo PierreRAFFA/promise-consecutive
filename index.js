@@ -98,7 +98,7 @@ PromiseSeries.prototype._executeCommand = function(command) {
  * @returns {boolean}
  */
 PromiseSeries.prototype.isPromise = function(methodReturn) {
-    return typeof methodReturn.then === 'function' && typeof methodReturn.catch === 'function';
+    return methodReturn && typeof methodReturn.then === 'function' && typeof methodReturn.catch === 'function';
 };
 
 module.exports = PromiseSeries;
