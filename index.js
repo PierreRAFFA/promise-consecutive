@@ -4,7 +4,7 @@
  *
  * @constructor
  */
-function PromiseConsecutive() {
+function PromiseSeries() {
 
     this._mainDefer = null;
     this._commands = [];
@@ -17,7 +17,7 @@ function PromiseConsecutive() {
  * @param method
  * @param ...arguments
  */
-PromiseConsecutive.prototype.add = function(method) {
+PromiseSeries.prototype.add = function(method) {
 
     var argArray = [].slice.call(arguments);
     argArray.splice(0,1);
@@ -33,7 +33,7 @@ PromiseConsecutive.prototype.add = function(method) {
 /**
  * Starts the execution of the command consecutively
  */
-PromiseConsecutive.prototype.start = function() {
+PromiseSeries.prototype.start = function() {
     this._mainDefer = Promise.defer();
 
     this._executeNextCommand();
@@ -45,7 +45,7 @@ PromiseConsecutive.prototype.start = function() {
  * Get the next command and execute it
  * @private
  */
-PromiseConsecutive.prototype._executeNextCommand = function() {
+PromiseSeries.prototype._executeNextCommand = function() {
     var command = this._commands.shift();
 
     if (command) {
@@ -70,7 +70,7 @@ PromiseConsecutive.prototype._executeNextCommand = function() {
  * @param command
  * @private
  */
-PromiseConsecutive.prototype._executeCommand = function(command) {
+PromiseSeries.prototype._executeCommand = function(command) {
 
     var defer = Promise.defer();
 
@@ -97,8 +97,8 @@ PromiseConsecutive.prototype._executeCommand = function(command) {
  * @param methodReturn
  * @returns {boolean}
  */
-PromiseConsecutive.prototype.isPromise = function(methodReturn) {
+PromiseSeries.prototype.isPromise = function(methodReturn) {
     return typeof methodReturn.then === 'function' && typeof methodReturn.catch === 'function';
 };
 
-module.exports = PromiseConsecutive;
+module.exports = PromiseSeries;

@@ -7,7 +7,7 @@ Each method :
 
 
 ```javascript
-var p = new PromiseConsecutive();  
+var p = new PromiseSeries();  
 p.add(logMessage, 'world');  
 p.add(sleep, 1000);  
 p.add(logMessage, 'again');  

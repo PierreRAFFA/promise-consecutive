@@ -1,9 +1,9 @@
-var PromiseConsecutive = require('../');
+var PromiseSeries = require('../');
 var DownloadManager = require('./utils/DownloadManager');
 
 var downloadManager = new DownloadManager();
 
-var p = new PromiseConsecutive();
+var p = new PromiseSeries();
 p.add(downloadManager.downloadWebPage, 'google.com');
 p.add(downloadManager.downloadAsset, '/assets/1.jpg');
 p.add(downloadManager.downloadWebPage, 'amazon.com');
