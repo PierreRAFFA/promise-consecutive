@@ -1,6 +1,6 @@
 # Promise Series Advanced
 
-This `promise-consecutive` modules allows you to execute a series of methods consecutively, and retrieve the results.  
+This `promise-series-advanced` modules allows you to execute a series of methods consecutively, and retrieve the results.  
 Each method :  
     - may be a promise or not.  
     - can be called with specific parameters  
