@@ -5,7 +5,7 @@ var p = new PromiseSeries();
 p.add(getName).as('name');
 p.add(getDescription).as('description');
 p.add(getPrice, '$').as('price');
-p.add(getLocation, '$');
+p.add(getLocation, '$'); // Note that no alias will return null as key for the object
 p.start()
     .then(results => {
         console.log(results);
@@ -45,7 +45,7 @@ function getLocation() {
     console.log('getLocation');
     var defer = Promise.defer();
     setTimeout(() => {
-        console.log(`UK`)
+        console.log(`UK`);
         defer.resolve(`UK`);
     }, 1000);
 
