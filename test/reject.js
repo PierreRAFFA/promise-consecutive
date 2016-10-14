@@ -1,4 +1,4 @@
-var PromiseSeries = require('../');
+var PromiseSeries = require('../lib/PromiseSeries');
 
 
 var p = new PromiseSeries();

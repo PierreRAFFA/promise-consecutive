@@ -1,4 +1,4 @@
-var PromiseSeries = require('../');
+var PromiseSeries = require('../lib/PromiseSeries');
 
 
 var p = new PromiseSeries();
@@ -24,8 +24,8 @@ function logMessage(text) {
 function sleep(duration) {
     // console.log('m3 called');
     var defer = Promise.defer();
+    console.log('sleep ' + duration)
     setTimeout(() => {
-        console.log('sleep ' + duration)
         defer.resolve(`I slept for ${duration}ms`);
     }, duration);
 

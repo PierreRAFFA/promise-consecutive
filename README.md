@@ -12,7 +12,8 @@ p.add(logMessage, 'world');
 p.add(sleep, 1000);  
 p.add(logMessage, 'again');  
 p.add(sleep, 2000);  
-p.add(logMessage, 'again and again');  
+p.add(logMessage, 'again and again');
+
 p.start()  
     .then(results => {  
         console.log(results);  

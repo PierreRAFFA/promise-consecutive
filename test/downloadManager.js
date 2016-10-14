@@ -1,5 +1,5 @@
 var PromiseSeries = require('../');
-var DownloadManager = require('./utils/DownloadManager');
+var PromiseSeries = require('../lib/PromiseSeries');
 
 var downloadManager = new DownloadManager();
 
