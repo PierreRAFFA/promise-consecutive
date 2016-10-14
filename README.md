@@ -6,6 +6,8 @@ Each method :
     - can be called with specific parameters  
 
 
+##Results as an array  
+  
 ```javascript
 var p = new PromiseSeries();  
 p.add(logMessage, 'world');  
@@ -49,3 +51,73 @@ This will print:
   'I slept for 2000ms',  
   'hello again and again' ]  
 ```
+
+
+
+##Results as an object
+  
+To do so, each method must have an alias:
+
+```javascript
+var p = new PromiseSeries();  
+p.add(getName).as('name');  
+p.add(getDescription).as('description');  
+p.add(getPrice, '$').as('price');  
+p.add(getLocation).as('location');  
+p.start()  
+    .then(results => {  
+        console.log(results);  
+    })  
+    .catch(error => {  
+        console.log(error);  
+    });  
+  
+function getName() {  
+    console.log('getName');  
+    return 'Canon eos 70d';  
+}  
+  
+function getDescription() {  
+    console.log('getDescription');  
+    var defer = Promise.defer();  
+    setTimeout(() => {  
+        console.log(`This is a camera`);  
+        defer.resolve(`This is a camera`);  
+    }, 1000);  
+  
+    return defer.promise;  
+}  
+  
+function getPrice(currency) {  
+    console.log('getPrice');  
+    var defer = Promise.defer();  
+    setTimeout(() => {  
+        console.log(`589${currency}`);  
+        defer.resolve(`589${currency}`);  
+    }, 1000);  
+  
+    return defer.promise;  
+}  
+  
+function getLocation() {  
+    console.log('getLocation');  
+    var defer = Promise.defer();  
+    setTimeout(() => {  
+        console.log(`UK`)  
+        defer.resolve(`UK`);  
+    }, 1000);  
+  
+    return defer.promise;  
+}  
+  
+```
+
+This will print:  
+
+```javascript
+{ name: 'Canon eos 70d',  
+  description: 'This is a camera',  
+  price: '589$',  
+  location: 'UK' }  
+```
+
