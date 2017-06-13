@@ -1,1 +1,1 @@
-require('./lib/PromiseSeries');
+module.exports = require('./lib/PromiseSeries');
